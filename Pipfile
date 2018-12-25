@@ -6,6 +6,9 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+vibora = {extras = ["fast"],version = "*"}
+goose3 = "*"
+news-please = "*"
 
 [requires]
 python_version = "3.7"
