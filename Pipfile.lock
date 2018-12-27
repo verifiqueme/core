@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b9a4dc55e24491e625046456296e9b7241808aaa9462389b725d7772b60d1be9"
+            "sha256": "7e12ff95e4b54e6aeb1e7eb8b3a3110792038e8f0ccb3c782a684771ceba3c5b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -326,18 +326,6 @@
             ],
             "version": "==1.5.1"
         },
-        "pendulum": {
-            "hashes": [
-                "sha256:0f43d963b27e92b04047ce8352e4c277db99f20d0b513df7d0ceafe674a2f727",
-                "sha256:14e60d26d7400980123dbb6e3f2a90b70d7c18c63742ffe5bd6d6a643f8c6ef1",
-                "sha256:5035a4e17504814a679f138374269cc7cc514aeac7ba6d9dc020abc224f25dbc",
-                "sha256:8c0b3d655c1e9205d4dacf42fffc929cde3b19b5fb544a7f7561e6896eb8a000",
-                "sha256:bfc7b33ae193a204ec0bec12ad0d2d3300cd7e51d91d992da525ba3b28f0d265",
-                "sha256:cd70b75800439794e1ad8dbfa24838845e171918df81fa98b68d0d5a6f9b8bf2",
-                "sha256:cf535d36c063575d4752af36df928882b2e0e31541b4482c97d63752785f9fcb"
-            ],
-            "version": "==2.0.4"
-        },
         "pillow": {
             "hashes": [
                 "sha256:00203f406818c3f45d47bb8fe7e67d3feddb8dcbbd45a289a1de7dd789226360",
@@ -396,7 +384,6 @@
         },
         "pycparser": {
             "hashes": [
-                "sha256:0d517bcf9b96f0f962d9ac679d3473f76221f2d61d66a44f285193a723ea04b9",
                 "sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
             ],
             "version": "==2.19"
@@ -436,13 +423,6 @@
             ],
             "markers": "python_version >= '2.7'",
             "version": "==2.7.5"
-        },
-        "pytzdata": {
-            "hashes": [
-                "sha256:10c74b0cfc51a9269031f86ecd11096c9c6a141f5bb15a3b8a88f9979f6361e2",
-                "sha256:279cbd9900d5da9a8f9053e60db0db7f42d9a799673744b76aaeb6b4f14abe77"
-            ],
-            "version": "==2018.7"
         },
         "pywin32": {
             "hashes": [
@@ -569,16 +549,6 @@
             ],
             "markers": "python_version >= '3.4'",
             "version": "==1.24.1"
-        },
-        "vibora": {
-            "extras": [
-                "fast"
-            ],
-            "hashes": [
-                "sha256:d991e9142a7d8d652fb4c3294a7458fe940286d4642e070361b0cb17f0b59b20"
-            ],
-            "index": "pypi",
-            "version": "==0.0.6"
         },
         "w3lib": {
             "hashes": [
