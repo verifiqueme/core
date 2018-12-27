@@ -10,6 +10,7 @@ goose3 = "*"
 news-please = "*"
 requests = "*"
 pendulum = "*"
+ftfy = "*"
 
 [requires]
 python_version = "3.7"
