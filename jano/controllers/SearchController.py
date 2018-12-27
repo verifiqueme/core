@@ -13,7 +13,6 @@ class SearchController(object):
     def bing_wrapper(self, query: str, q: Queue):
         bing = BingCrawler(os.environ.get('MS_BING_KEY'), "")
         values = bing.search_relatives(query)
-        print(values)
         q.put(values)
         q.task_done()
 
