@@ -15,12 +15,12 @@ class BingCrawler(SearchInterface):
         search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
         headers = {"Ocp-Apim-Subscription-Key": str(self.AzureKey)}
         params = {"q": query, "textDecorations": True, "textFormat": "HTML", "count": 50, "offset": 0,
-                  "setLang": Config.values().country, "mkt": Config.values().language}
+                  "setLang": Config.values()['country'], "mkt": Config.values()['language']}
         response = requests.get(search_url, headers=headers, params=params)
         response.raise_for_status()
         values = response.json()
         for entrada in values["value"]:
-            if self.ignore not in entrada.get('url'):
+            if not self.ignore or self.ignore not in entrada.get('url'):
                 modelo = SearchObject(entrada.get('name'), entrada.get('url'), entrada.get('description'),
                                       entrada.get('datePublished'))
                 resultados.append(modelo)
