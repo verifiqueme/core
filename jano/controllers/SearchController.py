@@ -15,13 +15,13 @@ class SearchController(object):
         self.ignore = ignore
 
     def bing_wrapper(self, query: str, q: Queue):
-        bing = BingCrawler(os.environ.get('MS_BING_KEY'), "")
+        bing = BingCrawler(os.environ.get('MS_BING_KEY'), self.ignore)
         values = bing.search_relatives(query)
         q.put(values)
         q.task_done()
 
     def google_wrapper(self, query: str, q: Queue):
-        google = GoogleCrawler("")
+        google = GoogleCrawler(self.ignore)
         values = google.search_relatives(query)
         q.put(values)
         q.task_done()
