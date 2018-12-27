@@ -8,7 +8,9 @@ from jano.search.google import GoogleCrawler
 
 
 class SearchController(object):
-    __results = []
+    def __init__(self, ignore):
+        self.__results = []
+        self.ignore = ignore
 
     def bing_wrapper(self, query: str, q: Queue):
         bing = BingCrawler(os.environ.get('MS_BING_KEY'), "")
