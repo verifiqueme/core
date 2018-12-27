@@ -26,7 +26,7 @@ class SearchController(object):
         q.put(values)
         q.task_done()
 
-    def search(self, query: str) -> List[SearchObject]:
+    def search(self, query: str) -> List:
         try:
             if not os.environ.get('MS_BING_KEY'):
                 raise NoAzureKey("Uma chave do Bing deve estar em MS_BING_KEY")
