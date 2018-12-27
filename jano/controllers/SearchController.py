@@ -31,7 +31,7 @@ class SearchController(object):
             _thread.start_new_thread(self.bing_wrapper, (query, q2))
             q1.join()
             q2.join()
-            result = [q1.get(), q2.get()]
+            result = q1.get() + q2.get()
             return result
         except Exception as e:
             raise JunoException(e.__str__())
