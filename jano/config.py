@@ -3,6 +3,7 @@ class Config(object):
     @staticmethod
     def values():
         settings = {
+            'max_list': 20,
             'country': "BR",
             'language': "pt-BR",
             'replacement_charset': "latin1",
