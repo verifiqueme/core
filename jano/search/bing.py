@@ -23,5 +23,5 @@ class BingCrawler(SearchInterface):
             if self.ignore not in entrada.get('url'):
                 modelo = SearchObject(entrada.get('name'), entrada.get('url'), entrada.get('description'),
                                       entrada.get('datePublished'))
-            resultados.append(modelo)
+                resultados.append(modelo)
         return resultados
