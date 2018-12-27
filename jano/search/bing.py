@@ -1,3 +1,5 @@
+from typing import List
+
 import requests
 
 from jano.config import Config
@@ -10,7 +12,13 @@ class BingCrawler(SearchInterface):
         self.AzureKey = key
         self.ignore = ignore
 
-    def search_relatives(self, query: str) -> list:
+    def search_relatives(self, query: str) -> List[SearchObject]:
+        """
+        Busca as ocorrências de uma string (Query) no Bing News
+        :rtype: List[SearchObject]
+        :param query: string a ser buscada
+        :return: lista com os resultados
+        """
         resultados = list()
         search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
         headers = {"Ocp-Apim-Subscription-Key": str(self.AzureKey)}

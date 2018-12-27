@@ -1,4 +1,5 @@
 import urllib.parse
+from typing import List
 
 import requests
 
@@ -11,7 +12,13 @@ class GoogleCrawler(SearchInterface):
     def __init__(self, ignore):
         self.ignore = ignore
 
-    def search_relatives(self, query: str) -> list:
+    def search_relatives(self, query: str) -> List[SearchObject]:
+        """
+        Busca as ocorrências de uma string (Query) no Google News
+        :rtype: List[SearchObject]
+        :param query: string a ser buscada
+        :return: lista com os resultados
+        """
         resultados = list()
         search_url = "http://srv1.guiscaranse.ml:8087/search/" + urllib.parse.quote_plus(query)
         headers = {}
