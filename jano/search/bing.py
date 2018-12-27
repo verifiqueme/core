@@ -20,7 +20,8 @@ class BingCrawler(SearchInterface):
         response.raise_for_status()
         values = response.json()
         for entrada in values["value"]:
-            modelo = SearchObject(entrada.get('name'), entrada.get('url'), entrada.get('description'),
-                                  entrada.get('datePublished'))
+            if self.ignore not in entrada.get('url'):
+                modelo = SearchObject(entrada.get('name'), entrada.get('url'), entrada.get('description'),
+                                      entrada.get('datePublished'))
             resultados.append(modelo)
         return resultados
