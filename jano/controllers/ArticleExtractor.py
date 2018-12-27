@@ -11,7 +11,8 @@ from jano.util import fixcharset
 
 
 class ArticleExtractor(object):
-    def extract(self, url: str):
+    @staticmethod
+    def extract(url: str) -> ArticleObject:
         try:
             artigo = NewsPlease.from_url(url, timeout=5)
             # Definir Texto
