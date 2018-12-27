@@ -9,6 +9,7 @@ verify_ssl = true
 goose3 = "*"
 news-please = "*"
 requests = "*"
+pendulum = "*"
 
 [requires]
 python_version = "3.7"
