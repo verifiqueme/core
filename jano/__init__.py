@@ -40,15 +40,11 @@ def extract_data(url: str) -> dict:
     if len(data) > cpus > 1:
         print("Usando suporte multi-core com {0} núcleos".format(cpus))
         list_parts = split_list(data, wanted_parts=cpus)
-        queues = []
+        q = Queue()
         for l in list_parts:
-            q = Queue()
             _thread.start_new_thread(extractor_wrapper, (l, q,))
-            queues.append(q)
-        for q in queues:
-            q.join()
-        for q in queues:
-            results = results + q.get()
+        for _ in list_parts:
+            results = results + q.get(block=True)
     else:
         print("Usando um único núcleo, isto pode levar mais tempo.")
         results = extractor(data)
