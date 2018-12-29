@@ -1,7 +1,6 @@
 import os
 import re
 import subprocess
-import re
 import unicodedata
 
 from ftfy import fix_encoding
@@ -85,7 +84,7 @@ def available_cpu_count():
     # https://github.com/giampaolo/psutil
     try:
         import psutil
-        return psutil.cpu_count()   # psutil.NUM_CPUS on old versions
+        return psutil.cpu_count()  # psutil.NUM_CPUS on old versions
     except (ImportError, AttributeError):
         pass
 
