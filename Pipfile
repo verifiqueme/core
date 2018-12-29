@@ -11,6 +11,7 @@ news-please = "*"
 requests = "*"
 pendulum = "*"
 ftfy = "*"
+fuzzywuzzy = {extras = ["speedup"],version = "*"}
 
 [requires]
 python_version = "3.7"
