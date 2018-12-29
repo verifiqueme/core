@@ -12,6 +12,7 @@ requests = "*"
 pendulum = "*"
 ftfy = "*"
 fuzzywuzzy = {extras = ["speedup"],version = "*"}
+nltk = "*"
 
 [requires]
 python_version = "3.7"
