@@ -29,7 +29,7 @@ def extractor_wrapper(data: List, q: Queue):
 def extract_data(url: str) -> dict:
     dados = {
         "original": None,
-        "metarelativos": []
+        "meta": []
     }
     artigo = ArticleExtractor().extract(url)
     find = SearchController(artigo.domain)
