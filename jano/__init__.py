@@ -24,7 +24,6 @@ def extractor(data: List):
 
 def extractor_wrapper(data: List, q: Queue):
     q.put(extractor(data))
-    q.task_done()
 
 
 def extract_data(url: str) -> dict:
