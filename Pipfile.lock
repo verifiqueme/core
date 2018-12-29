@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "69bf8bb9dabe2ce59cc18e59b4db4feef73a963b497fe00150fd77c32f284124"
+            "sha256": "3a86ac6d90f744c5e953c7f0e52663e68517e4f6e3cc67fc78ee7f9966c31c0b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -400,6 +400,10 @@
             ],
             "version": "==1.0.0"
         },
+        "polyglot": {
+            "git": "https://github.com/aboSamoor/polyglot.git",
+            "ref": "d0d2aa8d06cec4e03bd96618ae960030f7069a17"
+        },
         "pyasn1": {
             "hashes": [
                 "sha256:b9d3abc5031e61927c82d4d96c1cec1e55676c1a991623cfed28faea73cdd7ca",
@@ -413,6 +417,14 @@
                 "sha256:a38a8811ea784c0136abfdba73963876328f66172db21a05a82f9515909bfb4e"
             ],
             "version": "==0.2.2"
+        },
+        "pycld2": {
+            "hashes": [
+                "sha256:3d2005e89ea9c97fe3404e680412a6f9bccc8178294cd53241599ec08bd12d3c",
+                "sha256:7d0f51b1550a6f964409f55f02b1f784d59a0d1b2718efa87c14d43344078403"
+            ],
+            "path": "./../wheel/pycld2-0.31-cp37-cp37m-win_amd64.whl",
+            "version": "==0.31"
         },
         "pycparser": {
             "hashes": [
@@ -433,6 +445,14 @@
                 "sha256:8ffaa0a53da57e89de14ced7185ac746227a8894dbd5a3c718bf05ddbd1d56cd"
             ],
             "version": "==1.9.0"
+        },
+        "pyicu": {
+            "hashes": [
+                "sha256:b5072b8a89b366fb83c571cbd0af58ddc98830860a8e670ed48cc771487859b4",
+                "sha256:ea6ae8bb6845e2e145cf03cd80cf258487b80fca3669ae8a7bf0c5105df10973"
+            ],
+            "path": "./../wheel/PyICU-2.2-cp37-cp37m-win_amd64.whl",
+            "version": "==2.2"
         },
         "pymysql": {
             "hashes": [
