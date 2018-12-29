@@ -4,7 +4,6 @@ from queue import Queue
 from typing import List
 
 from jano.exceptions import NoAzureKey, JunoException
-from jano.models import SearchObject
 from jano.search.bing import BingCrawler
 from jano.search.google import GoogleCrawler
 
