@@ -47,6 +47,6 @@ def extract_data(url: str) -> dict:
     else:
         print("Usando um único núcleo, isto pode levar mais tempo.")
         results = extractor(data)
-    dados["metarelativos"] = results
+    dados["meta"] = results
     dados['original'] = artigo
     return dados
