@@ -16,6 +16,8 @@ nltk = "*"
 pycld2 = {path = "./../wheel/pycld2-0.31-cp37-cp37m-win_amd64.whl"}
 pyicu = {path = "./../wheel/PyICU-2.2-cp37-cp37m-win_amd64.whl"}
 polyglot = {git = "https://github.com/aboSamoor/polyglot.git",ref = "master"}
+tensorflow = "*"
+keras = "*"
 
 [requires]
 python_version = "3.7"
