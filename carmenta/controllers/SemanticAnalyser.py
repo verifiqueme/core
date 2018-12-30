@@ -15,7 +15,8 @@ class SemanticAnalyser(object):
                 downloader.download(package)
         return True
 
-    def gramatica(self, texto: str) -> dict:
+    @staticmethod
+    def gramatica(texto: str) -> dict:
         """
         Analisa e conta cada token de um texto no formato explicado aqui: http://polyglot.readthedocs.io/en/latest/POS.html
         :param texto: Texto a ser analisado
@@ -36,7 +37,8 @@ class SemanticAnalyser(object):
             resposta[tag] = round(resposta[tag] / total, 3)
         return resposta
 
-    def polaridade(self, texto: str) -> dict:
+    @staticmethod
+    def polaridade(texto: str) -> dict:
         """
         Verifica a polaridade de um texto (sentimentos bons/ruins)
         :param texto: Texto a ser analisado
