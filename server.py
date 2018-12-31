@@ -1,9 +1,11 @@
 import base64
 import json
+from abc import ABC
 from concurrent.futures import ThreadPoolExecutor
 
 import tornado.ioloop
 import tornado.web
+from tornado import httpserver
 from tornado.concurrent import run_on_executor
 
 from jano import available_cpu_count
@@ -12,7 +14,7 @@ from pales.controllers.BuilderController import predict
 MAX_WORKERS = available_cpu_count() * 5
 
 
-class APIHandler(tornado.web.RequestHandler):
+class APIHandler(tornado.web.RequestHandler, ABC):
     executor = ThreadPoolExecutor(max_workers=MAX_WORKERS)
 
     @run_on_executor
@@ -32,8 +34,17 @@ class APIHandler(tornado.web.RequestHandler):
         self.write(json.dumps(data))
 
 
+class Teste(tornado.web.RequestHandler, ABC):
+    async def teste(self):
+        return "hello"
+
+    async def get(self):
+        self.write(await self.teste())
+
+
 def make_app():
     return tornado.web.Application([
+        (r"/", Teste),
         (r"/api/([\s\S]*)", APIHandler),
     ])
 
@@ -41,5 +52,7 @@ def make_app():
 if __name__ == "__main__":
     print("Tornado it!")
     app = make_app()
-    app.listen(8888)
+    server = httpserver.HTTPServer(app)
+    server.bind(8888)
+    server.start(0)  # forks one process per cpu
     tornado.ioloop.IOLoop.current().start()
