@@ -18,6 +18,7 @@ pyicu = {path = "./../wheel/PyICU-2.2-cp37-cp37m-win_amd64.whl"}
 polyglot = {git = "https://github.com/aboSamoor/polyglot.git",ref = "master"}
 tensorflow = "*"
 keras = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"
