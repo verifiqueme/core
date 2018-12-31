@@ -1,5 +1,5 @@
-import _thread
-from queue import Queue
+from itertools import chain
+from multiprocessing import Pool
 from typing import List
 
 from jano.config import Config
@@ -22,10 +22,6 @@ def extractor(data: List):
     return result
 
 
-def extractor_wrapper(data: List, q: Queue):
-    q.put(extractor(data))
-
-
 def extract_data(url: str) -> dict:
     dados = {
         "original": None,
@@ -35,15 +31,12 @@ def extract_data(url: str) -> dict:
     find = SearchController(artigo.domain)
     data = find.search(artigo.titulo)
     cpus = available_cpu_count()
-    results = []
     if len(data) > cpus > 1:
         print("Usando suporte multi-core com {0} núcleos".format(cpus))
         list_parts = split_list(data, wanted_parts=cpus)
-        q = Queue()
-        for l in list_parts:
-            _thread.start_new_thread(extractor_wrapper, (l, q,))
-        for _ in list_parts:
-            results = results + q.get(block=True)
+        with Pool(processes=cpus) as pool:
+            results = pool.map(extractor, list_parts)
+            results = list(chain.from_iterable(results))
     else:
         print("Usando um único núcleo, isto pode levar mais tempo.")
         results = extractor(data)
