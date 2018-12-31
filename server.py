@@ -1,5 +1,6 @@
 import base64
 import json
+import os
 from abc import ABC
 from concurrent.futures import ThreadPoolExecutor
 
@@ -11,7 +12,10 @@ from tornado.concurrent import run_on_executor
 from jano import available_cpu_count
 from pales.controllers.BuilderController import predict
 
-MAX_WORKERS = available_cpu_count() * 5
+if os.environ.get('CORE_MULTIPROCESSING'):
+    MAX_WORKERS = available_cpu_count() * 5
+else:
+    MAX_WORKERS = 1
 
 
 class APIHandler(tornado.web.RequestHandler, ABC):
@@ -54,5 +58,6 @@ if __name__ == "__main__":
     app = make_app()
     server = httpserver.HTTPServer(app)
     server.bind(8888)
-    server.start(0)  # forks one process per cpu
+    if os.environ.get('CORE_MULTIPROCESSING'):
+        server.start(0)  # forks one process per cpu
     tornado.ioloop.IOLoop.current().start()
