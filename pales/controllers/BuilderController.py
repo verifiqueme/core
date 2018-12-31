@@ -1,5 +1,6 @@
 import numpy
 
+from carmenta import score
 from jano import Config
 from pales.controllers.KerasController import KerasController
 
