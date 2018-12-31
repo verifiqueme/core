@@ -8,6 +8,10 @@ from ftfy import fix_encoding
 from jano.config import Config
 
 
+def jano_index():
+    return os.path.join(os.path.abspath(os.path.dirname(__file__)), "..")
+
+
 def normalizeword(palavra: str) -> str:
     """
     Normaliza uma palavra individualmente (remove acento e caracteres especiais)
