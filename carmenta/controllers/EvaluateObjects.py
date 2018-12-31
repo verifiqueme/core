@@ -17,6 +17,6 @@ class EvaluateObjects(object):
             comparador = ArticleComparator.compare(original, relativo)
             resultados['title'] += comparador[0]
             resultados['corpus'] += comparador[1]
-        resultados['title'] = resultados['title']/len(dados['meta'])
-        resultados['corpus'] = resultados['corpus']/len(dados['meta'])
+        resultados['title'] = round(resultados['title']/len(dados['meta']), 2)
+        resultados['corpus'] = round(resultados['corpus']/len(dados['meta']),2)
         return resultados
