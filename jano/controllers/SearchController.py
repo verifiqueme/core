@@ -33,7 +33,7 @@ class SearchController(object):
                 raise NoAzureKey("Uma chave do Bing deve estar em MS_BING_KEY")
             cpus = available_cpu_count()
             q = Queue()
-            if cpus > 1:
+            if cpus > 1 and os.environ.get('CORE_MULTIPROCESSING'):
                 proc = Process(target=self.bing_wrapper, args=(query, q,)), Process(target=self.google_wrapper,
                                                                                     args=(query, q,))
                 for p in proc:
