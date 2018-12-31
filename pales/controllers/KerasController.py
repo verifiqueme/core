@@ -44,7 +44,8 @@ class KerasController(object):
         else:
             clear_session()
             model = Sequential()
-            model.add(Dense(51, input_dim=(len(self.HEADERS) - 1), activation='relu'))
+            model.add(Dense(21, input_dim=(len(self.HEADERS) - 1), activation='relu'))
+            model.add(Dense(51, activation='relu'))
             model.add(Dense(30, activation='relu'))
             model.add(Dense(1, activation='sigmoid'))
             # Compile model
