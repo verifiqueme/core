@@ -1,3 +1,4 @@
+import hashlib
 import os
 from itertools import chain
 from multiprocessing import Pool
@@ -5,6 +6,7 @@ from typing import List
 
 from jano.config import Config
 from jano.controllers.ArticleExtractor import ArticleExtractor
+from jano.controllers.CacheController import CacheController
 from jano.controllers.SearchController import SearchController
 from jano.models import SearchObject
 from jano.util import split_list, available_cpu_count
@@ -24,6 +26,10 @@ def extractor(data: List):
 
 
 def extract_data(url: str) -> dict:
+    cache = CacheController.getCache(url)
+    if cache:
+        return cache
+
     dados = {
         "original": None,
         "meta": []
@@ -43,4 +49,5 @@ def extract_data(url: str) -> dict:
         results = extractor(data)
     dados["meta"] = results
     dados['original'] = artigo
+    CacheController.createCache(dados)
     return dados
