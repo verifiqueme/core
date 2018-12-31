@@ -1,3 +1,7 @@
+# Cache
+jano/cache/*
+!jano/cache/.gitkeep
+
 # Testes
 hello.py
 
