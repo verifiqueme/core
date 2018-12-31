@@ -19,6 +19,7 @@ polyglot = {git = "https://github.com/aboSamoor/polyglot.git",ref = "master"}
 tensorflow = "*"
 keras = "*"
 pandas = "*"
+tornado = "*"
 
 [requires]
 python_version = "3.6"
