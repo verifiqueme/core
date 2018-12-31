@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ac3028619945c1f4302a5573705136cb4a2e3909abc9aa9bb593d80cdc705055"
+            "sha256": "50810a6ed7fe9ecc900f1c706d7890c1eb298963026a6775a281c1474828cfe5"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.7"
+            "python_version": "3.6"
         },
         "sources": [
             {
@@ -62,13 +62,6 @@
                 "sha256:a8d2a580986b9ab73912289dc0174ad6eb6fd935cda42f08f7bca96977da83ae"
             ],
             "version": "==1.16.81"
-        },
-        "backports.weakref": {
-            "hashes": [
-                "sha256:81bc9b51c0abc58edc76aefbbc68c62a787918ffe943a37947e162c3f8e19e82",
-                "sha256:bc4170a29915f8b22c9e7c4939701859650f2eb84184aee80da329ac0b9825c2"
-            ],
-            "version": "==1.0.post1"
         },
         "beautifulsoup4": {
             "hashes": [
@@ -202,15 +195,6 @@
                 "sha256:aada5cfdc4a543c47098eb3aca6663848ef5d04b4324935ced441debc11ec98b"
             ],
             "version": "==6.3.1"
-        },
-        "enum34": {
-            "hashes": [
-                "sha256:2d81cbbe0e73112bdfe6ef8576f2238f2ba27dd0d55752a776c41d38b7da2850",
-                "sha256:644837f692e5f550741432dd3f223bbb9852018674981b1664e5dc339387588a",
-                "sha256:6bd0f6ad48ec2aa117d3d141940d484deccda84d4fcd884f5c3d93c23ecd8c79",
-                "sha256:8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
-            ],
-            "version": "==1.1.6"
         },
         "feedfinder2": {
             "hashes": [
@@ -450,13 +434,6 @@
             ],
             "version": "==3.0.1"
         },
-        "mock": {
-            "hashes": [
-                "sha256:5ce3c71c5545b472da17b72268978914d0252980348636840bd34a00b5cc96c1",
-                "sha256:b158b6df76edd239b8208d481dc46b6afd45a846b7812ff0ce58971cf5bc8bba"
-            ],
-            "version": "==2.0.0"
-        },
         "news-please": {
             "hashes": [
                 "sha256:b855d48c1644d1fcf3628a197faf274c04881f00f70996c0fce703e1af468708"
@@ -469,7 +446,6 @@
                 "sha256:44a864222633d3081113d1030615991c3dbba87239f6bbf59d91240f71a22e3e",
                 "sha256:9f1bd3e1fb48f400c715abf875cc7b0a67b7ddcd87f50c9aeeb8fcbbbd9004fb"
             ],
-            "markers": "python_version >= '3.0'",
             "version": "==0.2.8"
         },
         "nltk": {
@@ -544,13 +520,6 @@
                 "sha256:9ccd82b8a122345601f6f9209e972c0e8c3518a188fcff2d37cb4d7bc570b4b8"
             ],
             "version": "==1.5.1"
-        },
-        "pbr": {
-            "hashes": [
-                "sha256:f59d71442f9ece3dffc17bc36575768e1ee9967756e6b6535f0ee1f0054c3d68",
-                "sha256:f6d5b23f226a2ba58e14e49aa3b1bfaf814d0199144b95d78458212444de1387"
-            ],
-            "version": "==5.1.1"
         },
         "pendulum": {
             "hashes": [
@@ -648,10 +617,10 @@
         },
         "pycld2": {
             "hashes": [
-                "sha256:3d2005e89ea9c97fe3404e680412a6f9bccc8178294cd53241599ec08bd12d3c",
-                "sha256:7d0f51b1550a6f964409f55f02b1f784d59a0d1b2718efa87c14d43344078403"
+                "sha256:7d0f51b1550a6f964409f55f02b1f784d59a0d1b2718efa87c14d43344078403",
+                "sha256:82543dc62930c00df82db6389d6a506ed1da86ddda5fbad936006b3544578080"
             ],
-            "path": "./../wheel/pycld2-0.31-cp37-cp37m-win_amd64.whl",
+            "path": "./../wheel/pycld2-0.31-cp36-cp36m-win_amd64.whl",
             "version": "==0.31"
         },
         "pycparser": {
@@ -676,10 +645,10 @@
         },
         "pyicu": {
             "hashes": [
-                "sha256:b5072b8a89b366fb83c571cbd0af58ddc98830860a8e670ed48cc771487859b4",
+                "sha256:430c218b5956d34a4ade0c446334843aa9a4538f4763e7a676fbd2977aa93a4d",
                 "sha256:ea6ae8bb6845e2e145cf03cd80cf258487b80fca3669ae8a7bf0c5105df10973"
             ],
-            "path": "./../wheel/PyICU-2.2-cp37-cp37m-win_amd64.whl",
+            "path": "./../wheel/PyICU-2.2-cp36-cp36m-win_amd64.whl",
             "version": "==2.2"
         },
         "pymysql": {
@@ -735,7 +704,6 @@
                 "sha256:6dbc4219fe45ece6a0cc6baafe0105604fdee551b5e876dc475d3955b77190ec",
                 "sha256:9bd07746ce7f2198021a9fa187fa80df7b221ec5e4c234ab6f00ea355a3baf99"
             ],
-            "markers": "sys_platform == 'win32'",
             "version": "==224"
         },
         "pyyaml": {
