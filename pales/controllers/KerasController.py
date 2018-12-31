@@ -12,7 +12,8 @@ class KerasController(object):
     def __init__(self):
         self.MODULE_PATH = pales_index()
         self.HEADERS = Config.values()['headers']
-        dataset = pandas.read_csv(os.path.join(self.MODULE_PATH, "/data/dataset.csv"), names=self.HEADERS)
+        dataset_path = os.path.normpath(pales_index() + os.path.normcase("/data/dataset.csv"))
+        dataset = pandas.read_csv(dataset_path, names=self.HEADERS)
         array = dataset.values
         self.X = array[:, 0:(len(self.HEADERS) - 1)]
         self.Y = array[:, (len(self.HEADERS) - 1)]
