@@ -13,8 +13,8 @@ pendulum = "*"
 ftfy = "*"
 fuzzywuzzy = {extras = ["speedup"],version = "*"}
 nltk = "*"
-pycld2 = {path = "./../wheel/pycld2-0.31-cp36-cp36m-win_amd64.whl"}
-pyicu = {path = "./../wheel/PyICU-2.2-cp36-cp36m-win_amd64.whl"}
+pycld2 = {file = "https://download.lfd.uci.edu/pythonlibs/r5uhg2lo/pycld2-0.31-cp36-cp36m-win_amd64.whl", os_name = "=='nt'"}
+pyicu = {file = "https://download.lfd.uci.edu/pythonlibs/r5uhg2lo/PyICU-2.2-cp36-cp36m-win_amd64.whl", os_name = "=='nt'"}
 polyglot = {git = "https://github.com/aboSamoor/polyglot.git",ref = "master"}
 tensorflow = "*"
 keras = "*"
