@@ -17,5 +17,5 @@ RUN pipenv install --system;
 # Bundle web source
 COPY . .
 
-EXPOSE 80
+EXPOSE 8888
 CMD [ "python", "server.py" ]

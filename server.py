@@ -58,7 +58,8 @@ if __name__ == "__main__":
     print("Tornado it!")
     app = make_app()
     server = httpserver.HTTPServer(app)
-    server.bind(8888)
+    port = os.environ.get('PORT') if os.environ.get('PORT') else 8888
+    server.bind(port)
     if os.environ.get('CORE_MULTIPROCESSING'):
         server.start(0)  # forks one process per cpu
     tornado.ioloop.IOLoop.current().start()
