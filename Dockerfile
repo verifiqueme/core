@@ -18,4 +18,4 @@ RUN pipenv install --system;
 COPY . .
 
 EXPOSE 8888
-CMD [ "python", "server.py" ]
+ENTRYPOINT  [ "python", "server.py" ]
