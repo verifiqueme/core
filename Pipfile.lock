@@ -687,6 +687,7 @@
                 "sha256:6dbc4219fe45ece6a0cc6baafe0105604fdee551b5e876dc475d3955b77190ec",
                 "sha256:9bd07746ce7f2198021a9fa187fa80df7b221ec5e4c234ab6f00ea355a3baf99"
             ],
+            "markers": "sys_platform == 'win32'",
             "version": "==224"
         },
         "pyyaml": {
