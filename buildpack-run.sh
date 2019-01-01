@@ -3,8 +3,8 @@ export PATH="/app/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 pyenv install 3.6.7
-
-sudo apt-get install build-essential software-properties-common libicu-dev python-pyicu -y
+pyenv global 3.6.7
+apt-get install build-essential software-properties-common libicu-dev python-pyicu -y
 pip install pipenv
 pipenv install --system
 find / -iname '*.cpp' -exec echo sed -i 's/locale\.h/locale2.h/g' '{}' ';'
