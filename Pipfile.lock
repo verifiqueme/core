@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f9fb25ef0b4f33b5efbe84563eed5b4350a7aa3ff0a56cf35e52b51303fb8074"
+            "sha256": "546825c8e821c9fe74a088d28427048e4bd49c68bf059879e5d34f116ae3bbd8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -614,10 +614,6 @@
             ],
             "version": "==0.2.3"
         },
-        "pycld2": {
-            "file": "https://download.lfd.uci.edu/pythonlibs/r5uhg2lo/pycld2-0.31-cp36-cp36m-win_amd64.whl#egg=pycld2",
-            "sys_platform": "== 'win32'"
-        },
         "pycparser": {
             "hashes": [
                 "sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
@@ -637,10 +633,6 @@
                 "sha256:8ffaa0a53da57e89de14ced7185ac746227a8894dbd5a3c718bf05ddbd1d56cd"
             ],
             "version": "==1.9.0"
-        },
-        "pyicu": {
-            "file": "https://download.lfd.uci.edu/pythonlibs/r5uhg2lo/PyICU-2.2-cp36-cp36m-win_amd64.whl#egg=pyicu",
-            "sys_platform": "== 'win32'"
         },
         "pymysql": {
             "hashes": [
