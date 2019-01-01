@@ -23,7 +23,7 @@ class APIHandler(tornado.web.RequestHandler, ABC):
 
     @run_on_executor
     def background_task(self, i):
-        """ Isto será executado em uma Pool. """
+        """ Isto sera executado em uma Pool. """
         result = predict(i)
         return result[0]
 
