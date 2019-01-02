@@ -44,7 +44,7 @@ class APIHandler(tornado.web.RequestHandler, ABC):
     def background_task(self, i):
         """ Isto sera executado em uma Pool. """
         result = predict(i)
-        return result[0]
+        return str(result[0])
 
     @tornado.web.gen.coroutine
     def get(self, query):
