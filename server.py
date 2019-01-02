@@ -16,8 +16,10 @@ from pales.controllers.BuilderController import predict
 
 if os.environ.get('CORE_MULTIPROCESSING'):
     MAX_WORKERS = available_cpu_count() * 5
+    print("Tornado: Utilizará multi-processamento")
 else:
     MAX_WORKERS = 1
+    print("Tornado: Um único núcleo será utilizado")
 
 
 def decode_base64(data, altchars=b'+/'):

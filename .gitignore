@@ -4,6 +4,7 @@ jano/cache/*
 
 # Testes
 hello.py
+*.dat
 
 # PyCharm
 .idea
