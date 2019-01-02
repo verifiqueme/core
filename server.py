@@ -80,4 +80,6 @@ if __name__ == "__main__":
     server.bind(port)
     if os.environ.get('CORE_MULTIPROCESSING'):
         server.start(0)  # forks one process per cpu
+    else:
+        server.start()
     tornado.ioloop.IOLoop.current().start()
