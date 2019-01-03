@@ -18,7 +18,7 @@ if os.environ.get('CORE_MULTIPROCESSING'):
     MAX_WORKERS = available_cpu_count() * 5
     print("Tornado: Utilizará multi-processamento")
 else:
-    MAX_WORKERS = 1
+    MAX_WORKERS = available_cpu_count()
     print("Tornado: Um único núcleo será utilizado")
 
 
@@ -52,6 +52,7 @@ class APIHandler(tornado.web.RequestHandler, ABC):
         data = decode_base64(query)
         res = yield self.background_task(data)
         data = {
+            "request": data,
             "response": res
         }
         self.write(json.dumps(data))
@@ -75,11 +76,12 @@ def make_app():
 if __name__ == "__main__":
     print("Tornado it!")
     app = make_app()
-    server = httpserver.HTTPServer(app)
     port = os.environ.get('PORT') if os.environ.get('PORT') else 8888
-    server.bind(port)
+
     if os.environ.get('CORE_MULTIPROCESSING'):
+        server = httpserver.HTTPServer(app)
+        server.bind(port)
         server.start(0)  # forks one process per cpu
     else:
-        server.start()
+        app.listen(port)
     tornado.ioloop.IOLoop.current().start()
