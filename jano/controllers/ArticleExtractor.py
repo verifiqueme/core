@@ -10,7 +10,7 @@ class ArticleExtractor(object):
     @staticmethod
     def extract(url: str) -> ArticleObject:
         try:
-            artigo = NewsPlease.from_url(url, timeout=5)
+            artigo = NewsPlease.from_url(url, timeout=1)
             # Definir Texto
             if artigo.text is not None:
                 text = fixcharset(artigo.text)
@@ -34,7 +34,7 @@ class ArticleExtractor(object):
             g = Goose(
                 {'strict': False, 'use_meta_language': True,
                  'target_language': Config().values()['language'].replace("-", "_"),
-                 'parser_class': 'lxml', 'enable_image_fetching': False, 'http_timeout': 5})
+                 'parser_class': 'lxml', 'enable_image_fetching': False, 'http_timeout': 1})
             artigo = g.extract(url=url)
             if artigo.cleaned_text:
                 text = fixcharset(artigo.cleaned_text)

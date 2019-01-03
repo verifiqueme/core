@@ -16,14 +16,14 @@ class SearchController(object):
     def bing_wrapper(self, query: str, q: Optional[Queue]):
         bing = BingCrawler(os.environ.get('MS_BING_KEY'), self.ignore)
         values = bing.search_relatives(query)
-        if q is not None:
+        if q is not None and len(values):
             q.put(values)
         return values
 
     def google_wrapper(self, query: str, q: Optional[Queue]):
         google = GoogleCrawler(self.ignore)
         values = google.search_relatives(query)
-        if q is not None:
+        if q is not None and len(values):
             q.put(values)
         return values
 
