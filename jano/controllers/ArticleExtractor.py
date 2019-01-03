@@ -34,7 +34,7 @@ class ArticleExtractor(object):
             g = Goose(
                 {'strict': False, 'use_meta_language': True,
                  'target_language': Config().values()['language'].replace("-", "_"),
-                 'parser_class': 'lxml', 'enable_image_fetching': False})
+                 'parser_class': 'lxml', 'enable_image_fetching': False, 'http_timeout': 5})
             artigo = g.extract(url=url)
             if artigo.cleaned_text:
                 text = fixcharset(artigo.cleaned_text)
