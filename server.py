@@ -15,7 +15,7 @@ from jano import available_cpu_count
 from pales.controllers.BuilderController import predict
 
 if os.environ.get('CORE_MULTIPROCESSING'):
-    MAX_WORKERS = available_cpu_count() * 5
+    MAX_WORKERS = available_cpu_count()
     print("Tornado: Utilizará multi-processamento")
 else:
     MAX_WORKERS = available_cpu_count()
