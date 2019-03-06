@@ -11,7 +11,8 @@ import tornado.web
 from tornado import httpserver
 from tornado.concurrent import run_on_executor
 
-from jano import available_cpu_count
+from jano import available_cpu_count, extract_data
+from jano.models.ArticleObject import ArticleObject
 from pales.controllers.BuilderController import predict
 
 if os.environ.get('CORE_MULTIPROCESSING'):
@@ -48,16 +49,27 @@ class APIHandler(tornado.web.RequestHandler, ABC):
     @run_on_executor
     def background_task(self, i):
         """ Isto sera executado em uma Pool. """
-        result = predict(i)
-        return str(result[0])
+        try:
+            result = predict(i)
+            return str(result[0])
+        except Exception as e:
+            self.set_status(500)
+            return str(e.__str__())
 
     @tornado.web.gen.coroutine
     def get(self, query):
         """ Chama a tarefa de fundo de forma assíncrona """
         data = decode_base64(query)
         res = yield self.background_task(data)
+        metadados = extract_data(data)
+        original: ArticleObject = metadados['original']
         data = {
             "request": data,
+            "info": {
+                "title": original.titulo,
+                "descricao": original.descricao,
+                "domain": original.domain
+            },
             "response": res
         }
         self.write(json.dumps(data))
