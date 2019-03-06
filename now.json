@@ -2,6 +2,7 @@
   "name": "verfcme-core",
   "public": true,
   "dotenv": true,
+  "alias": "verfcme-core.now.sh",
   "type": "docker",
   "version": 1,
   "features": {
