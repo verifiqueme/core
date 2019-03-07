@@ -12,15 +12,11 @@ from tornado import httpserver
 from tornado.concurrent import run_on_executor
 
 from jano import available_cpu_count, extract_data
+from jano.controllers.CacheController import CacheController
 from jano.models.ArticleObject import ArticleObject
 from pales.controllers.BuilderController import predict
 
-if os.environ.get('CORE_MULTIPROCESSING'):
-    MAX_WORKERS = available_cpu_count()
-    print("Tornado: Utilizará multi-processamento")
-else:
-    MAX_WORKERS = available_cpu_count()
-    print("Tornado: Um único núcleo será utilizado")
+MAX_WORKERS = available_cpu_count()
 
 
 def decode_base64(data, altchars=b'+/'):
@@ -49,29 +45,38 @@ class APIHandler(tornado.web.RequestHandler, ABC):
     @run_on_executor
     def background_task(self, i):
         """ Isto sera executado em uma Pool. """
-        try:
-            result = predict(i)
-            return str(result[0])
-        except Exception as e:
-            self.set_status(500)
-            return str(e.__str__())
+        result = predict(i)
+        return str(result[0])
 
     @tornado.web.gen.coroutine
     def get(self, query):
         """ Chama a tarefa de fundo de forma assíncrona """
-        data = decode_base64(query)
-        res = yield self.background_task(data)
-        metadados = extract_data(data)
-        original: ArticleObject = metadados['original']
-        data = {
-            "request": data,
-            "info": {
-                "title": original.titulo,
-                "descricao": original.descricao,
-                "domain": original.domain
-            },
-            "response": res
-        }
+        try:
+            url = decode_base64(query)
+            res = yield self.background_task(url)
+            metadados = extract_data(url)
+            original: ArticleObject = metadados['original']
+            words = 0
+            for artigo in metadados["meta"]:
+                assert isinstance(artigo, ArticleObject)
+                words += len(artigo.texto)
+            cache_age = CacheController.getCache(url)
+            age = cache_age if cache_age else "now"
+            data = {
+                "request": url,
+                "info": {
+                    "title": original.titulo,
+                    "descricao": original.descricao,
+                    "domain": original.domain,
+                    "words": words,
+                    "total": len(metadados['meta']),
+                    "age": age
+                },
+                "response": res
+            }
+        except Exception as e:
+            self.set_status(401)
+            data = dict({"error": e.__str__()})
         self.write(json.dumps(data))
 
 
