@@ -44,9 +44,11 @@ class KerasController(object):
         else:
             clear_session()
             model = Sequential()
-            model.add(Dense(21, input_dim=(len(self.HEADERS) - 1), activation='relu'))
-            model.add(Dense(51, activation='relu'))
-            model.add(Dense(30, activation='relu'))
+            model.add(Dense(50, input_dim=(len(self.HEADERS) - 1), activation='relu'))
+            model.add(Dense(43, activation='relu'))
+            model.add(Dense(25, activation='relu'))
+            model.add(Dense(20, activation='relu'))
+            model.add(Dense(9, activation='relu'))
             model.add(Dense(1, activation='sigmoid'))
             # Compile model
             model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
