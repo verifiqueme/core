@@ -60,16 +60,16 @@ class APIHandler(tornado.web.RequestHandler, ABC):
             for artigo in metadados["meta"]:
                 assert isinstance(artigo, ArticleObject)
                 words += len(artigo.texto)
-            cache_age = CacheController.getCache(url)
+            cache_age = CacheController.cacheAge(url).to_atom_string()
             age = cache_age if cache_age else "now"
             data = {
-                "request": url,
+                "request": str(url),
                 "info": {
-                    "title": original.titulo,
-                    "descricao": original.descricao,
-                    "domain": original.domain,
-                    "words": words,
-                    "total": len(metadados['meta']),
+                    "title": str(original.titulo),
+                    "descricao": str(original.descricao),
+                    "domain": str(original.domain),
+                    "words": int(words),
+                    "total": int(len(metadados['meta'])),
                     "age": age
                 },
                 "response": res
