@@ -20,6 +20,8 @@ tensorflow = "*"
 keras = "*"
 pandas = "*"
 tornado = "*"
+pycld2 = "*"
+pyicu-binary = "*"
 
 [requires]
 python_version = "3.6"
