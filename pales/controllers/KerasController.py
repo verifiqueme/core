@@ -17,15 +17,21 @@ class KerasController(object):
         array = dataset.values
         self.X = array[:, 0:(len(self.HEADERS) - 1)]
         self.Y = array[:, (len(self.HEADERS) - 1)]
+        self.validation_size = 0.20
 
-    def evaluate(self, keras_model):
-        scores = keras_model.evaluate(self.X, self.Y)
+    def evaluate(self, keras_model, evaluate_x=None, evaluate_y=None):
+        if evaluate_x is None:
+            evaluate_x = self.X
+        if evaluate_y is None:
+            evaluate_y = self.Y
+        scores = keras_model.evaluate(evaluate_x, evaluate_y)
         return "%s: %.2f%%" % (keras_model.metrics_names[1], scores[1] * 100)
 
-    def keras_model(self, force=False, verbose=False):
+    def keras_model(self, force=False, verbose=False, final=False):
         """
         Método para retornar um modelo iterativo do Keras. Se um modelo já existir, carregará os pesos e retornará um objeto
         de modelo iterativo. Caso não exista um modelo, um será gerado.
+        :param final: Se deve utilizar todos os dados (True) do dataset ou dividi-lo (False)
         :param verbose: quando o verbose estiver ligado durante a criação de um modelo, mostrará a precisão do mesmo
         :param force: se deve ou não forçar a geração de um modelo fresco
         :return: modelo iterativo do keras
@@ -44,18 +50,26 @@ class KerasController(object):
         else:
             clear_session()
             model = Sequential()
-            model.add(Dense(50, input_dim=(len(self.HEADERS) - 1), activation='relu'))
-            model.add(Dense(43, activation='relu'))
-            model.add(Dense(25, activation='relu'))
-            model.add(Dense(20, activation='relu'))
-            model.add(Dense(9, activation='relu'))
+            model.add(Dense(30, input_dim=(len(self.HEADERS) - 1), activation='relu'))
+            model.add(Dense(51, activation='relu'))
+            model.add(Dense(36, activation='relu'))
+            model.add(Dense(10, activation='relu'))
             model.add(Dense(1, activation='sigmoid'))
             # Compile model
             model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
             model_json = model.to_json()
-            model.fit(self.X, self.Y, epochs=150, batch_size=20, verbose=0, shuffle=True)
+            from sklearn import model_selection
+            X_train, X_validation, Y_train, Y_validation = \
+                model_selection.train_test_split(self.X, self.Y, test_size=self.validation_size)
+            if not final:
+                model.fit(X_train, Y_train, epochs=150, batch_size=20, verbose=0, shuffle=True)
+            else:
+                model.fit(self.X, self.Y, epochs=150, batch_size=20, verbose=0, shuffle=True)
             if verbose:
-                print(self.evaluate(model))
+                if not final:
+                    print(self.evaluate(model, evaluate_x=X_validation, evaluate_y=Y_validation))
+                else:
+                    print(self.evaluate(model, evaluate_x=self.X, evaluate_y=self.Y))
             with open(model_path, "w") as json_file:
                 json_file.write(model_json)
             model.save_weights(weights_path)
