@@ -9,6 +9,11 @@ from pales.util import pales_index
 
 
 class KerasController(object):
+    """
+    DESCONTINUADO EM FAVOR DO TALOS
+    Embora seja ainda possível utilizar o keras para realizar predições com este projeto, suas funcionalidades não terão
+    garantia de funcionamento em atualizações futuras
+    """
     def __init__(self):
         self.MODULE_PATH = pales_index()
         self.HEADERS = Config.values()['headers']
