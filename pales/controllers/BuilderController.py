@@ -5,7 +5,7 @@ from jano import Config
 from pales.controllers.TalosController import TalosController
 
 
-def translate_to_keras(url: str) -> list:
+def translate_to_keras(url: str) -> numpy.ndarray:
     info = dict()
     for head in Config.values()['headers']:
         info[head] = 0
@@ -15,7 +15,7 @@ def translate_to_keras(url: str) -> list:
         info[key] = data['comparators'][key]
     for key in data['semantic'].keys():
         info[key] = data['semantic'][key]
-    return [[v for k, v in info.items()]]
+    return numpy.array([[v for k, v in info.items()]])
 
 
 def predict(url: str) -> list:
@@ -25,4 +25,4 @@ def predict(url: str) -> list:
     :return: Retorna uma lista de probabilidade (1° coluna: chance de ser verdadeira, 2° coluna: chance de ser falsa)
     """
     keras = TalosController()
-    return keras.talos_model().model.predict(numpy.array(translate_to_keras(url)))[0]
+    return keras.talos_model().model.predict_proba(translate_to_keras(url))[0]

@@ -23,6 +23,7 @@ tornado = "*"
 pycld2 = "*"
 pyicu-binary = "*"
 talos = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.6"
