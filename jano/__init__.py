@@ -4,10 +4,13 @@ from itertools import chain
 from multiprocessing import Pool
 from typing import List
 
+from polyglot.detect import Detector
+
 from jano.config import Config
 from jano.controllers.ArticleExtractor import ArticleExtractor
 from jano.controllers.CacheController import CacheController
 from jano.controllers.SearchController import SearchController
+from jano.exceptions import InvalidLanguage
 from jano.models import SearchObject
 from jano.util import split_list, available_cpu_count
 
@@ -35,6 +38,9 @@ def extract_data(url: str) -> dict:
         "meta": []
     }
     artigo = ArticleExtractor().extract(url)
+    detector = Detector(artigo.titulo)
+    if "pt" not in detector.language:
+        raise InvalidLanguage("Apenas artigos em português serão analisados")
     find = SearchController(artigo.domain)
     data = find.search(artigo.titulo)
     cpus = available_cpu_count()
