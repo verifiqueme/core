@@ -2,7 +2,7 @@ import numpy
 
 from carmenta import score
 from jano import Config
-from pales.controllers.KerasController import KerasController
+from pales.controllers.TalosController import TalosController
 
 
 def translate_to_keras(url: str) -> list:
@@ -24,5 +24,5 @@ def predict(url: str) -> list:
     :param url: a URL a ser analisada
     :return: Retorna uma lista de probabilidade (1° coluna: chance de ser verdadeira, 2° coluna: chance de ser falsa)
     """
-    keras = KerasController()
-    return keras.keras_model().predict_proba(numpy.array(translate_to_keras(url)))[0]
+    keras = TalosController()
+    return keras.talos_model().model.predict(numpy.array(translate_to_keras(url)))[0]
