@@ -1,6 +1,6 @@
-# Núcleo
+<img src="https://cdn.jsdelivr.net/gh/verifiqueme/web@master/src/assets/icon.png" width="123px" alt="verifica.me" align="right">
 
-![Banner](https://cdn.jsdelivr.net/gh/verifiqueme/web@master/src/assets/logo.svg)
+# Núcleo
 =====
 
 ![License](https://img.shields.io/github/license/verifiqueme/core.svg)
