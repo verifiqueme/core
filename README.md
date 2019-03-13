@@ -1,7 +1,6 @@
 <img src="https://cdn.jsdelivr.net/gh/verifiqueme/web@master/src/assets/icon.png" width="123px" alt="verifica.me" align="right">
 
 # Núcleo
-=====
 
 ![License](https://img.shields.io/github/license/verifiqueme/core.svg)
 
