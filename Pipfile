@@ -24,6 +24,7 @@ pycld2 = "*"
 pyicu-binary = "*"
 talos = "*"
 numpy = "*"
+tinydb = "*"
 
 [requires]
 python_version = "3.6"
