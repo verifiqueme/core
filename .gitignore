@@ -1,3 +1,6 @@
+# DB
+*.db
+
 # Cache
 jano/cache/*
 !jano/cache/.gitkeep
