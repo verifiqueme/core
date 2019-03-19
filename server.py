@@ -37,11 +37,6 @@ def decode_base64(data, altchars=b'+/'):
 class APIHandler(tornado.web.RequestHandler, ABC):
     executor = ThreadPoolExecutor(max_workers=MAX_WORKERS)
 
-    def set_default_headers(self):
-        self.set_header("Access-Control-Allow-Origin", "*")
-        self.set_header("Access-Control-Allow-Headers", "x-requested-with")
-        self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
-
     @run_on_executor
     def background_task(self, i):
         """ Isto sera executado em uma Pool. """
