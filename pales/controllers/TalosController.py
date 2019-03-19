@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas
 import talos as ta
 from keras import Sequential
-from keras.backend import binary_crossentropy, elu, relu, sigmoid
+from keras.backend import binary_crossentropy, elu, relu, sigmoid, clear_session
 from keras.layers import Dropout, Dense
 from keras.optimizers import Adam, Nadam
 from talos.model import hidden_layers, lr_normalizer
@@ -71,8 +71,10 @@ class TalosController(object):
         """
         model_path = self.MODULE_PATH + "/data/talos/fakedata.zip"
         if Path(model_path).is_file() and force is False:
+            clear_session()
             return ta.Restore(model_path)
         else:
+            clear_session()
             t = ta.Scan(x=self.X,
                         y=self.Y,
                         model=self.fake_news_model,
