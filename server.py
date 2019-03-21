@@ -73,9 +73,9 @@ class RatingHandler(BaseHandler, ABC):
                 if rating == 1:
                     table.update({'good': int(search[0]['good']) + rating}, Rating.url == url)
                 else:
-                    table.update({'bad': int(search[0]['bad'])}, Rating.url == url)
+                    table.update({'bad': int(search[0]['bad']) + rating}, Rating.url == url)
             else:
-                table.insert({'url': url, 'good': 1 if int(rating) > 1 else 0, 'bad': 1 if int(rating) < 1 else 0})
+                table.insert({'url': url, 'good': 1 if int(rating) == 1 else 0, 'bad': 1 if int(rating) != 1 else 0})
             data = "ok"
             self.set_status(201)
         except Exception as e:
