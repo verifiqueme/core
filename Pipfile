@@ -25,6 +25,7 @@ pyicu-binary = "*"
 talos = "*"
 numpy = "*"
 tinydb = "*"
+click = "*"
 
 [requires]
 python_version = "3.6"
