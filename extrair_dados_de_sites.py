@@ -1,10 +1,14 @@
+import click
 import newspaper
 
 from pales.controllers.BuilderController import translate_to_keras
 
-if __name__ == "__main__":
-    search = newspaper.build('https://www.terra.com.br/', language="pt", memoize_articles=False, timeout=15)
-    articles = list(reversed(search.articles))[:50]
+@click.command()
+@click.option("--url", prompt="Site a ser analisado",
+              help="O site a ser analisado")
+def hello(url):
+    search = newspaper.build(url, language="pt", memoize_articles=False, timeout=15)
+    articles = list(reversed(search.articles))
     print(len(articles))
     for article in search.articles:
         try:
@@ -20,3 +24,7 @@ if __name__ == "__main__":
             print("thank you next")
         except Exception:
             pass
+
+
+if __name__ == '__main__':
+    hello()
