@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 import pendulum
 import tornado.ioloop
 import tornado.web
+import tornado.wsgi
 from tinydb import TinyDB, Query
 from tornado import httpserver
 from tornado.concurrent import run_on_executor
@@ -129,12 +130,13 @@ class APIHandler(BaseHandler, ABC):
         self.write(json.dumps(data))
 
 
-def make_app():
-    return tornado.web.Application([
+def make_app(*args, **kwargs):
+    app = tornado.web.Application([
         (r"/", IndexHandler),
         (r"/api/([\s\S]*)", APIHandler),
         (r"/rating", RatingHandler)
     ])
+    return tornado.wsgi.WSGIAdapter(app)
 
 
 if __name__ == "__main__":
