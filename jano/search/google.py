@@ -20,7 +20,7 @@ class GoogleCrawler(SearchInterface):
         :return: lista com os resultados
         """
         resultados = list()
-        search_url = "http://srv1.verifique.me:8087/search/" + urllib.parse.quote_plus(query)
+        search_url = "http://news.verifique.me/search/" + urllib.parse.quote_plus(query)
         headers = {}
         params = {"lang": Config.values()['language']}
         response = requests.get(search_url, headers=headers, params=params)
