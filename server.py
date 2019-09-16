@@ -136,7 +136,7 @@ def make_app(*args, **kwargs):
         (r"/api/([\s\S]*)", APIHandler),
         (r"/rating", RatingHandler)
     ])
-    return tornado.wsgi.WSGIAdapter(app)
+    return app
 
 
 if __name__ == "__main__":
