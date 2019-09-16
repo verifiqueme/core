@@ -1,5 +1,5 @@
 # DB
-*.json
+db.json
 
 # Cache
 jano/cache/*
