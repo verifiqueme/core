@@ -8,6 +8,8 @@ services:
     env_file:
      - .env
     command: "python3 server.py"
+    depends_on:
+      - newsapi
   newsapi:
     image: node:lts-alpine
     working_dir: /home/node/app
