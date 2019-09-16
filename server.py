@@ -149,5 +149,5 @@ if __name__ == "__main__":
         server.bind(port)
         server.start(0)  # forks one process per cpu
     else:
-        app.listen(port)
+        app.listen(port, "0.0.0.0")
     tornado.ioloop.IOLoop.current().start()

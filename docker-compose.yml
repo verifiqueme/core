@@ -7,7 +7,7 @@ services:
       - .:/var/app/www
     env_file:
      - .env
-    command: uvicorn server:make_app --port 8000 --host 0.0.0.0 
+    command: python server.py
     depends_on:
       - newsapi
   newsapi:
