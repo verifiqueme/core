@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get install build-essential software-properties-common libicu-dev python-pyicu -y;
 
 # Install pipenv
-RUN pip install pipenv;
+RUN pip install pexpect pipenv;
 
 RUN pipenv install --system;
 
