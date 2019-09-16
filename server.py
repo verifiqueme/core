@@ -9,7 +9,6 @@ from concurrent.futures import ThreadPoolExecutor
 import pendulum
 import tornado.ioloop
 import tornado.web
-import tornado.wsgi
 from tinydb import TinyDB, Query
 from tornado import httpserver
 from tornado.concurrent import run_on_executor
@@ -130,7 +129,7 @@ class APIHandler(BaseHandler, ABC):
         self.write(json.dumps(data))
 
 
-def make_app(*args, **kwargs):
+def tornado_app(*args, **kwargs):
     app = tornado.web.Application([
         (r"/", IndexHandler),
         (r"/api/([\s\S]*)", APIHandler),
@@ -139,15 +138,16 @@ def make_app(*args, **kwargs):
     return app
 
 
-if __name__ == "__main__":
-    print("Tornado it! Workers: {}".format(MAX_WORKERS))
-    app = make_app()
+def make_app(*args, **kwargs):
+    print("Turning TORNADO it! Workers: {}".format(MAX_WORKERS))
     port = os.environ.get('PORT') if os.environ.get('PORT') else 8888
-
-    if os.environ.get('CORE_MULTIPROCESSING'):
-        server = httpserver.HTTPServer(app)
-        server.bind(port)
-        server.start(0)  # forks one process per cpu
-    else:
-        app.listen(port, "0.0.0.0")
+    host = "0.0.0.0"
+    server = httpserver.HTTPServer(tornado_app(*args, **kwargs))
+    server.bind(port)
+    server.start(0)  # forks one process per cpu
+    print('Listening on http://{}:{}'.format(host, port))
     tornado.ioloop.IOLoop.current().start()
+
+
+if __name__ == "__main__":
+    make_app()
