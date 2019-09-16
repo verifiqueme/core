@@ -24,5 +24,6 @@ services:
       ACME_AGREE: 'true'
     depends_on:
       - web
+      - newsapi
 volumes:
   caddy: {}
