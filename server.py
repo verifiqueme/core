@@ -140,7 +140,7 @@ def tornado_app(*args, **kwargs):
 
 def make_app(*args, **kwargs):
     print("Turning TORNADO it! Workers: {}".format(MAX_WORKERS))
-    port = os.environ.get('PORT') if os.environ.get('PORT') else 8888
+    port = os.environ.get('PORT') if os.environ.get('PORT') else 8000
     host = "0.0.0.0"
     server = httpserver.HTTPServer(tornado_app(*args, **kwargs))
     server.bind(port)
