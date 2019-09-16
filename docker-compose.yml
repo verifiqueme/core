@@ -13,7 +13,7 @@ services:
     working_dir: /home/node/app
     volumes:
       - ./newsapi:/home/node/app
-    command: "bash ./newsapi/start.sh"
+    command: "npm start"
   caddy:
     image: abiosoft/caddy
     ports:
