@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/var/app/www
+    env_file:
+     - .env
+  newsapi:
+    image: lts-alpine
+    volumes:
+      - ./newsapi:/home/node/app
+    command: "npm start"
+  caddy:
+    image: abiosoft/caddy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./Caddyfile:/etc/Caddyfile
+      - caddy:/root/.caddy
+    environment:
+      ACME_AGREE: 'true'
+    depends_on:
+      - web
+volumes:
+  caddy: {}

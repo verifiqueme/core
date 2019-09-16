@@ -1,0 +1,27 @@
+:80, api.verifique.me {
+  gzip
+  cache
+  cors / https://verifique.me
+  proxy / web:8000 {
+    header_upstream Host {host}
+    header_upstream X-Real-IP {remote}
+    header_upstream X-Forwarded-For {remote}
+    header_upstream X-Forwarded-Port {server_port}
+    header_upstream X-Forwarded-Proto {scheme}
+  }
+  tls guiscaranse@gmail.com
+}
+
+news.verifique.me {
+  gzip
+  cache
+  cors / https://verifique.me
+  proxy / newsapi:5000 {
+    header_upstream Host {host}
+    header_upstream X-Real-IP {remote}
+    header_upstream X-Forwarded-For {remote}
+    header_upstream X-Forwarded-Port {server_port}
+    header_upstream X-Forwarded-Proto {scheme}
+  }
+  tls guiscaranse@gmail.com
+}
