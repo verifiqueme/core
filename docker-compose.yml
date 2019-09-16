@@ -8,7 +8,7 @@ services:
     env_file:
      - .env
   newsapi:
-    image: lts-alpine
+    image: node:lts-alpine
     volumes:
       - ./newsapi:/home/node/app
     command: "npm start"
