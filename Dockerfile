@@ -1,7 +1,7 @@
 FROM python:3.6.5
 
 # Create web directory
-WORKDIR /usr/src/app
+WORKDIR /var/app/www
 
 # Install web dependencies
 COPY Pipfile* ./
