@@ -11,7 +11,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 8083);
 app.get('/search/:query', function (req, res, next) {
     var query = req.params.query;
     var data = {"articles": []}

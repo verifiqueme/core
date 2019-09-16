@@ -7,6 +7,7 @@ services:
       - .:/var/app/www
     env_file:
      - .env
+    command: "python3 server.py"
   newsapi:
     image: node:lts-alpine
     volumes:

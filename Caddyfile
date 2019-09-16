@@ -16,7 +16,7 @@ news.verifique.me {
   gzip
   cache
   cors / https://verifique.me
-  proxy / newsapi:5000 {
+  proxy / newsapi:8083 {
     header_upstream Host {host}
     header_upstream X-Real-IP {remote}
     header_upstream X-Forwarded-For {remote}
