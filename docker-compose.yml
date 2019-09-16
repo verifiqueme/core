@@ -10,6 +10,7 @@ services:
     command: "python3 server.py"
   newsapi:
     image: node:lts-alpine
+    working_dir: /home/node/app
     volumes:
       - ./newsapi:/home/node/app
     command: "npm start"
