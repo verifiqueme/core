@@ -38,9 +38,9 @@ def extract_data(url: str) -> dict:
         "meta": []
     }
     artigo = ArticleExtractor().extract(url)
-    detector = Detector(artigo.titulo)
-    if "pt" not in detector.language.code:
-        raise InvalidLanguage("Apenas artigos em português serão analisados")
+    # detector = Detector(artigo.titulo)
+    # if "pt" not in detector.language.code:
+    #     raise InvalidLanguage("Apenas artigos em português serão analisados")
     find = SearchController(artigo.domain)
     data = find.search(artigo.titulo)
     cpus = available_cpu_count()
