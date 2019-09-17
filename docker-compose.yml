@@ -7,6 +7,8 @@ services:
       - .:/var/app/www
     env_file:
      - .env
+    environment:
+     - PYTHONUNBUFFERED=1
     command: python server.py
     depends_on:
       - newsapi
