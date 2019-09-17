@@ -17,7 +17,9 @@ from jano import available_cpu_count, extract_data
 from jano.controllers.CacheController import CacheController
 from jano.models.ArticleObject import ArticleObject
 from pales.controllers.BuilderController import predict
+from dotenv import load_dotenv
 
+load_dotenv()
 MAX_WORKERS = available_cpu_count()
 db = TinyDB('db.json')
 
