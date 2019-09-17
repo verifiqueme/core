@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "250921ccd9d02518410c43337de5966647fe0ee70fbe082f6afb4a0d5e4c8d9d"
+            "sha256": "45b18e74864117b850fa28ee501995a1a46dfc3933d25f7ce21b7fd74a250657"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -448,11 +448,11 @@
         },
         "keras": {
             "hashes": [
-                "sha256:0fb448b95643a708d25d2394183a2f3a84eefb55fb64917152a46826990113ea",
-                "sha256:5a75cfdf69c6cb9de81a82aa19542ac69a5c2e78a48a58c1649fc5cdb55c917c"
+                "sha256:a0d6ecf1d71cd0b85ea1da27ea7314a9d4723f5b468b7cedd87dcad0a491b354",
+                "sha256:ff7db814756d9106c273afc4bd798f48924fa66f9328157a4b722d535baef363"
             ],
             "index": "pypi",
-            "version": "==2.2.5"
+            "version": "==2.3.0"
         },
         "keras-applications": {
             "hashes": [
@@ -788,8 +788,7 @@
         },
         "pycparser": {
             "hashes": [
-                "sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3",
-                "sha256:dab867697bb2fcf04b7b996134300705e729473a4b76322c3839a63408a93614"
+                "sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
             ],
             "version": "==2.19"
         },
@@ -864,6 +863,14 @@
             ],
             "markers": "python_version >= '2.7'",
             "version": "==2.8.0"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:debd928b49dbc2bf68040566f55cdb3252458036464806f4094487244e2a4093",
+                "sha256:f157d71d5fec9d4bd5f51c82746b6344dffa680ee85217c123f4a0c8117c4544"
+            ],
+            "index": "pypi",
+            "version": "==0.10.3"
         },
         "python-levenshtein": {
             "hashes": [
@@ -1149,10 +1156,10 @@
         },
         "tqdm": {
             "hashes": [
-                "sha256:1be3e4e3198f2d0e47b928e9d9a8ec1b63525db29095cec1467f4c5a4ea8ebf9",
-                "sha256:7e39a30e3d34a7a6539378e39d7490326253b7ee354878a92255656dc4284457"
+                "sha256:4c34f077399736e5dbf403183b5f0f1bda46e06433a3f93812386a9d56b28004",
+                "sha256:74d40d49cab95a93735323e450161f1e580dac42b25bf39770f6e3501d36ebfb"
             ],
-            "version": "==4.35.0"
+            "version": "==4.36.0"
         },
         "traitlets": {
             "hashes": [
