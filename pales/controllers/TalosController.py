@@ -30,7 +30,7 @@ class TalosController(object):
                   'dropout': (0, 0.2, 0.5),
                   'weight_regulizer': [None],
                   'emb_output_dims': [None],
-                  'shape': ['brick', 'long_funnel'],
+                  'shapes': ['brick', 'funnel'],
                   'kernel_initializer': ['uniform', 'normal'],
                   'optimizer': [Adam, Nadam],
                   'losses': [binary_crossentropy],
@@ -78,9 +78,8 @@ class TalosController(object):
             t = ta.Scan(x=self.X,
                         y=self.Y,
                         model=self.fake_news_model,
-                        grid_downsample=.01,
                         params=self.p,
-                        dataset_name='fakenews',
-                        experiment_no='1')
-            ta.Deploy(t, str(model_path).replace(".zip", ""))
+                        fraction_limit=.03,
+                        experiment_name='fakenews')
+            ta.Deploy(t, "fakenewsdata", "val_acc")
             return t

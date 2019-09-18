@@ -7,7 +7,7 @@ WORKDIR /var/app/www
 COPY Pipfile* ./
 
 RUN apt-get update && \
-    apt-get install build-essential software-properties-common libicu-dev python-pyicu -y;
+    apt-get install build-essential software-properties-common libicu-dev python-pyicu python3-tk -y;
 
 # Install pipenv
 RUN pip install pexpect uvicorn pipenv;
