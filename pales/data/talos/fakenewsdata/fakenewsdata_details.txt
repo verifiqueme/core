@@ -1,0 +1,10 @@
+experiment_name,fakenews
+random_method,uniform_mersenne
+reduction_method,
+reduction_interval,50
+reduction_window,20
+reduction_threshold,0.2
+reduction_metric,val_acc
+complete_time,09/19/19/04:03
+x_shape,"(1099, 22)"
+y_shape,"(1099,)"

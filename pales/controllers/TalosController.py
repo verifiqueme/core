@@ -69,7 +69,7 @@ class TalosController(object):
         :param force: se deve ou não forçar a geração de um modelo fresco
         :return: modelo iterativo do talos
         """
-        model_path = self.MODULE_PATH + "/data/talos/fakedata.zip"
+        model_path = self.MODULE_PATH + "/data/talos/fakenewsdata.zip"
         if Path(model_path).is_file() and force is False:
             clear_session()
             return ta.Restore(model_path)
@@ -81,5 +81,5 @@ class TalosController(object):
                         params=self.p,
                         fraction_limit=.03,
                         experiment_name='fakenews')
-            ta.Deploy(t, "fakenewsdata", "val_acc")
+            ta.Deploy(t, "fakenewsdata", "val_accKkkk")
             return t
