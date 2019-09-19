@@ -30,7 +30,7 @@ class TalosController(object):
                   'dropout': (0, 0.2, 0.5),
                   'weight_regulizer': [None],
                   'emb_output_dims': [None],
-                  'shape': ['brick', 'long_funnel'],
+                  'shapes': ['brick', 'funnel'],
                   'kernel_initializer': ['uniform', 'normal'],
                   'optimizer': [Adam, Nadam],
                   'losses': [binary_crossentropy],
@@ -69,7 +69,7 @@ class TalosController(object):
         :param force: se deve ou não forçar a geração de um modelo fresco
         :return: modelo iterativo do talos
         """
-        model_path = self.MODULE_PATH + "/data/talos/fakedata.zip"
+        model_path = self.MODULE_PATH + "/data/talos/fakenewsdata.zip"
         if Path(model_path).is_file() and force is False:
             clear_session()
             return ta.Restore(model_path)
@@ -78,9 +78,8 @@ class TalosController(object):
             t = ta.Scan(x=self.X,
                         y=self.Y,
                         model=self.fake_news_model,
-                        grid_downsample=.01,
                         params=self.p,
-                        dataset_name='fakenews',
-                        experiment_no='1')
-            ta.Deploy(t, str(model_path).replace(".zip", ""))
+                        fraction_limit=.03,
+                        experiment_name='fakenews')
+            ta.Deploy(t, "fakenewsdata", "val_acc")
             return t

@@ -1,3 +1,4 @@
+import os
 import urllib.parse
 from typing import List
 
@@ -20,7 +21,8 @@ class GoogleCrawler(SearchInterface):
         :return: lista com os resultados
         """
         resultados = list()
-        search_url = "http://news.verifique.me/search/" + urllib.parse.quote_plus(query)
+        search_url = "http://{}/search/".format(os.environ.get("NEWS_API",
+                                                               "news.verifique.me")) + urllib.parse.quote_plus(query)
         headers = {}
         params = {"lang": Config.values()['language']}
         response = requests.get(search_url, headers=headers, params=params)

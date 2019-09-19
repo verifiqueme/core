@@ -26,6 +26,7 @@ talos = "*"
 numpy = "*"
 tinydb = "*"
 click = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.6"
