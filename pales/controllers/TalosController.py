@@ -81,5 +81,5 @@ class TalosController(object):
                         params=self.p,
                         fraction_limit=.03,
                         experiment_name='fakenews')
-            ta.Deploy(t, "fakenewsdata", "val_accKkkk")
+            ta.Deploy(t, "fakenewsdata", "val_acc")
             return t
