@@ -3,6 +3,7 @@ import base64
 import json
 import os
 import re
+import traceback
 from abc import ABC
 from concurrent.futures import ThreadPoolExecutor
 
@@ -126,6 +127,7 @@ class APIHandler(BaseHandler, ABC):
             table.insert({'url': url, 'date': str(pendulum.now('America/Sao_Paulo'))})
             self.set_status(200)
         except Exception as e:
+            print(traceback.format_exc())
             self.set_status(401)
             data = dict({"error": e.__str__()})
         self.write(json.dumps(data))

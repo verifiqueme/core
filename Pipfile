@@ -16,8 +16,8 @@ ftfy = "*"
 fuzzywuzzy = {extras = ["speedup"],version = "*"}
 nltk = "*"
 polyglot = {git = "https://github.com/aboSamoor/polyglot.git",ref = "master"}
-tensorflow = "*"
-keras = "*"
+tensorflow = "==1.13.1"
+keras = "==2.2.4"
 pandas = "*"
 tornado = "*"
 pycld2 = "*"
@@ -30,3 +30,6 @@ python-dotenv = "*"
 
 [requires]
 python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true
