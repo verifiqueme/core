@@ -16,6 +16,13 @@ O núcleo consiste de múltiplos componentes (módulos), cada componente é resp
 * Pales: Módulo responsável por organizar e controlar a rede neural usando o Talos/Keras
 
 ***
+Clonando
+=====
+Este repositório contêm submódulos, clone-o usando:
+
+```sh
+git clone --recurse-submodules https://github.com/verifiqueme/core.git 
+```
 
 Instalando
 =====
